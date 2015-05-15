@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Real Time Chat App</title>
+    <link rel="stylesheet" href="stylesheet/style.css">
+
 </head>
+
 <body>
-    <h1>Realtime Chat</h1>
+
+<ul id="messages">
+    <form action="">
+        <input id="name" type="text" autocomplete="off" placeholder="name"/>
+        <input id="m" autocomplete="off" placeholder="Messages"/>
+        <button>Send</button>
+    </form>
+</ul>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="/socket.io/socket.io.js" ></script>
+
+<script>
+    var socket = io();
+
+    $('form').submit(function(){
+        socket.emit('chat message',$('#name').val()+ ":"+ $('#m').val() );
+        msg = $('#m').val('');
+        $('#name').hide();
+        return false;
+    });
+    socket.on('chat message', function(msg){
+        var name = $('#name').val();
+
+        $("#messages").append($('<li>').text( msg));
+
+    });
+</script>
 </body>
 </html>
+
