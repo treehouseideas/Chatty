@@ -1,15 +1,16 @@
 {
   "name": "chatty",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Realtime Chat App",
   "main": "chat.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Paolo Liwanag",
   "license": "CPL",
   "dependencies": {
     "express": "^4.12.3",
-    "socket.io": "^1.3.5"
+    "socket.io": "^1.3.5",
+    "jade": "*"
   }
 }
